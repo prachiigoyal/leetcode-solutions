@@ -8,14 +8,19 @@ class Solution {
                 }else if(i==0){
                     dp[i][j]=false;
                 }else if(j==0){
-                    boolean flag=true;
-                    for(int ii=0;ii<i;ii++){
-                        if(p.charAt(ii)!='*'){
-                            flag=false;
-                            break;
-                        }
+                    // boolean flag=true;
+                    // for(int ii=0;ii<i;ii++){
+                    //     if(p.charAt(ii)!='*'){
+                    //         flag=false;
+                    //         break;
+                    //     }
+                    // }
+                    // dp[i][j]=flag;
+                    if(i>=1 && p.charAt(i-1)=='*'){
+                        dp[i][j]=dp[i-1][j];
+                    }else{
+                        dp[i][j]=false;
                     }
-                    dp[i][j]=flag;
                 }else{
                     char pc=p.charAt(i-1);
                     char sc=s.charAt(j-1);
